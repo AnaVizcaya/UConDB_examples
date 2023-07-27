@@ -59,7 +59,7 @@ class runConfigurations():
     The runConfigurations class is used to download the runconfig files from the DAQ DB
     And upload them to the UConDB
     '''
-    def __init__(self, run_number, verbose = 3, ucon_folder = 'test', ucon_object = 'testt',
+    def __init__(self, run_number, verbose = 3, ucon_folder = 'test', ucon_object = 'test',
                  to_UconDB = True, status_upload = True):
         '''
         :param run_number: int
@@ -184,11 +184,11 @@ class runConfigurations():
 
     def blob_to_uconDB(self):
         '''
-        Send the blob to the UConDB using curl so as not to install ucondb
+        Send the blob to the UConDB using curl so as not to install ucondb client
         '''
         if self.verbose >= 1:
             print(f'Transfering blob file of run {self.run_number} to UConDB... ')
-        ret_code = subprocess.run(['curl','-T', self.blob_str,'--digest','-u','protodune:Pr0oto!DUN3','-X','PUT', self.ucondb_url])
+        ret_code = subprocess.run(['curl','-T', self.blob_str,'--digest','-u','username:password','-X','PUT', self.ucondb_url])
         if ret_code.returncode == 7:
             print(f'Failed to connect to UConDB. Try source .db_startup.sh')
             self.remove_dir()
