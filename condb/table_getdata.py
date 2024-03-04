@@ -1,6 +1,6 @@
 # Usage python table_getdata.py --run run_num 
 
-from condb import ConDB
+from condb import ConDBClient
 import argparse
 
 def run(args):
