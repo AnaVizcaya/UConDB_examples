@@ -38,7 +38,7 @@ def connect_to_con():
     host    = 'ifdbprod2.fnal.gov'
     port    = '5451'
     db_name = 'pdunesp_prod'
-    user    = 'avizcaya'
+    user    = '####'
     connstr = f'host={host} port={port} dbname={db_name} user={user}'
     db = ConDB(connstr = connstr)
     return db.openFolder('pdunesp.test_prueba')
